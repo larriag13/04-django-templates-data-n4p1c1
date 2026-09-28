@@ -1,1 +1,37 @@
 {% extends 'index.html' %}
+{% block title %}Bienvenidos{% endblock %}
+{% block content %}
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">      
+          <h2 class="mt-5">Productos Destacados</h2>
+          {% if productos %}
+          <div class="table-responsive small">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Stock</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for producto in productos %}
+                <tr>
+                  <td>{{ producto.id }}</td>
+                  <td>{{ producto.nombre }}</td>
+                  <td>{{ producto.descripcion }}</td>
+                  <td>{{ producto.precio }}</td>
+                  <td>{{ producto.stock }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          {% else %}
+            <p>No hay productos disponibles.</p>
+          {% endif %}
+        </main>
+  
+
+{% endblock %}
